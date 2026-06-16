@@ -1,0 +1,9 @@
+module(name = "buildbuddy_minimal_llvm")
+
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
+bazel_dep(name = "rules_cc", version = "0.2.19")
+
+# hermetic LLVM toolchain (for C++ compiler and linker)
+bazel_dep(name = "llvm", version = "0.8.8")
+
+register_toolchains("@llvm//toolchain:all")

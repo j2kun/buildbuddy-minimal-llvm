@@ -1,0 +1,23 @@
+# buildbuddy
+build --bes_results_url=https://app.buildbuddy.io/invocation/
+build --bes_backend=grpcs://remote.buildbuddy.io
+common --remote_cache=grpcs://remote.buildbuddy.io
+common --remote_timeout=10m
+common --jobs=50
+common --remote_cache_compression
+
+# enables remote execution
+common --remote_executor=grpcs://remote.buildbuddy.io
+common --platforms=@llvm//platforms:linux_x86_64
+common --host_platform=@llvm//platforms:linux_x86_64
+
+common --action_env=BAZEL_CXXOPTS=-std=c++20
+common --cxxopt='-std=c++20'
+common --copt=-fdiagnostics-color=always
+
+common -c dbg
+common --enable_bzlmod
+
+# prevents changes to PATH from causing a full rebuild
+common --incompatible_strict_action_env
+
