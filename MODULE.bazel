@@ -15,6 +15,9 @@ use_repo(llvm, "llvm-project")
 gcc = use_extension("@llvm//3rd_party/gcc/extension:gcc.bzl", "gcc")
 use_repo(gcc, "gcc")
 
+musl = use_extension("@llvm//runtimes/musl/extension:musl.bzl", "musl")
+use_repo(musl, "musl_libc")
+
 # Register toolchains through the scoped repo to ensure this codepath works.
 llvm_toolchains = use_extension("@llvm//extensions:toolchain.bzl", "toolchain")
 use_repo(llvm_toolchains, "llvm_toolchains")
