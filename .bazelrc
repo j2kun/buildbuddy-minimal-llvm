@@ -56,9 +56,9 @@ common --remote_timeout=120
 common --noexperimental_throttle_remote_action_building
 common --experimental_remote_execution_keepalive
 common --grpc_keepalive_time=30s
-common:remote --remote_executor=grpcs://remote.buildbuddy.io
-common:remote --jobs=800
-common:remote --extra_execution_platforms=@llvm//:rbe_platform
+common --remote_executor=grpcs://remote.buildbuddy.io
+common --jobs=50
+common --extra_execution_platforms=@llvm//:rbe_platform
 
 common --per_file_copt=external/.*llvm-project.*@-Wno-thread-safety-analysis
 common --host_per_file_copt=external/.*llvm-project.*@-Wno-thread-safety-analysis
